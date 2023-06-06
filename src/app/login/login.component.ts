@@ -12,19 +12,28 @@ export class LoginComponent {
   pdata="Enter Your Password"
   serviceData:any
 
+  acno:any
+  psw:any
+
   constructor(private router:Router,private ds:DataService) { }
   ngOnInit(): void {
-    this.serviceData=this.ds.sdata
-    console.log(this.serviceData);
-    this.serviceData.smethod
     
   }
-  login(a:any)
+  login()
   {
-    // console.log(a.value);
     
-    // alert('button clicked')
-    this.router.navigateByUrl('home')
+    var acno=this.acno
+    var psw=this.psw
+    this.ds.login(acno,psw).subscribe((result:any)=>{
+      alert(result.message)
+      this.router.navigateByUrl('home')
+    },
+    result=>{
+      alert(result.error.message)
+    }
+    )
+    
+    
   }
     
   }

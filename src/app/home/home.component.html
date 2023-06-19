@@ -1,19 +1,28 @@
 
     <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-12 list-group">
-            <button id="d" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;">
+            <button id="d" (click)="accessUser()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;">
                 <i class="fa-solid fa-user me-2 fa-2x text-warning"></i><b>View Profile</b> </button>
             <hr class="text-white">
-            <button id="d" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;">
+
+            <button id="d" type="button" (click)="checkBalance()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;">
                 <i class="fa-solid fa-sack-dollar ms-2 text-warning fa-2x"></i><b>Balance Enquiry</b> </button>
             <hr class="text-white">
-            <button id="d" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;"><i class="fa-solid fa-money-bill-transfer ms-2 text-warning fa-2x"></i><b>Money Transfer</b> </button>
+
+            <button id="d" type="button" (click)="moneyTransfer()" data-bs-toggle="modal" data-bs-target="#exampleModal" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;">
+              <i class="fa-solid fa-money-bill-transfer ms-2 text-warning fa-2x"></i><b>Money Transfer</b> </button>
             <hr class="text-white">
-            <button id="d" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;"><i class="fa-light fa-file-invoice ms-2 text-warning fa-2x"></i><b>Account Statement</b> </button>
+
+            <a href="transaction" id="d" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;">
+              <i class="fa-light fa-file-invoice ms-2 text-warning fa-2x"></i><b>Account Statement</b> </a>
             <hr class="text-white">
-            <button id="d" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;"><i class="fa-solid fa-right-from-bracket ms-2 text-warning fa-2x"></i><b>Log Out</b> </button>
+
+            <button id="d" (click)="logout()" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;">
+              <i class="fa-solid fa-right-from-bracket ms-2 text-warning fa-2x"></i><b>Log Out</b> </button>
             <hr class="text-white">
-            <button id="d" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;"><i class="fa-regular fa-trash ms-2 text-warning fa-2x"></i><b> Delete Account</b></button>
+
+            <button id="d" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;">
+              <i class="fa-regular fa-trash ms-2 text-warning fa-2x"></i><b> Delete Account</b></button>
             <hr class="text-white">
         </div>
         <div class="col-lg-8 col-sm-12" >
@@ -33,15 +42,15 @@
       <div class="modal-content">
         <div class="modal-body ">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          <h1 class="modal-title fs-5 text text-center" id="exampleModalLabel">View Profile</h1>
+          <h1 class="modal-title fs-5 text text-center" id="exampleModalLabel"> PROFILE</h1>
           <img class="w-50" style="position: relative;left:120px;" src="https://i.postimg.cc/Hx2Wrknp/businessman-avatar-cartoon-character-profile-vector-25645195.jpg" alt="">
         </div>
 
         <div class="modal-body" style="background-color: rgb(51, 181, 224);">
             <hr>  
-            <h3>User Name</h3>
+            <h3>User Name:  {{userData.uname}}</h3>
               <hr>
-              <h3>Account Number</h3>
+              <h3>Account Number: {{acno}}</h3>
         </div>
         <div class="modal-footer">
           
@@ -51,7 +60,7 @@
     </div>
   </div>
 
-<!-- balance equery offcanvas  -->
+<!-- balance enquery offcanvas  -->
 <div style="background-color:rgb(51, 181, 224) ;color: white;" 
 class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header text-center">
@@ -64,5 +73,32 @@ class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-label
         <h3>Account Number</h3>
         <hr>
       <h3>Current Balance</h3>
+    </div>
+  </div>
+
+  <!--modal for money transfer  -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="color: rgb(51, 181, 224);">
+          <form [formGroup]="transaction"  class="p-3 text-center" action="">
+            <h1><b>MONEY TRANSFER</b></h1><i class="fa-solid fa-money-bill-transfer ms-2 text-warning fa-5x"></i>
+            <input formControlName="acno" type="text" id="inputBorder" class="mt-4 form-control fs-5" placeholder="Reciepient Account Number">
+            <input formControlName="amt" type="text" id="inputBorder" class="mt-4 form-control fs-5" placeholder="Amount to send">
+            <input formControlName="psw" type="password" id="inputBorder" class="mt-4 form-control fs-5" placeholder="Password">
+            <button style="background-color:rgb(51, 181, 224); color: white;" id="d"
+            class="mt-5 p-2 w-1000 btn">Transfer</button>
+          </form>
+        </div>
+        <div class="modal-footer" style="background-color:rgb(51, 181, 224) ;">
+          <p [ngClass]="alertColor?'s1':'s2'" class="text-white">{{alertMessage}}</p>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
     </div>
   </div>

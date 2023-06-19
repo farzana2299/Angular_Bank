@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -12,13 +13,20 @@ export class RegisterComponent {
   uname:any
   psw:any
   cpsw:any
-  constructor(private ds:DataService,private router:Router)
+  
+  constructor(private ds:DataService,private router:Router,private fb:FormBuilder)
   {
   }
   ngOnInit(): void
 {
 
 }
+registerForm=this.fb.group({
+  acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+  uname:['',[Validators.required,Validators.pattern('[a-zA-z]+')]],
+  psw:['',[Validators.required,Validators.pattern('[a-zA-z0-9]+')]],
+  cpsw:['',[Validators.required,Validators.pattern('[a-zA-z0-9]+')]]
+})
 signup()
 {
   // console.log(this.acno);
@@ -33,8 +41,9 @@ signup()
   console.log(uname);
   console.log(psw);
   console.log(cpsw);
-  
-  if (psw==cpsw)
+  if(this.registerForm.valid)
+  {
+    if (psw==cpsw)
   {
     this.ds.register(acno,uname,psw).subscribe((result:any)=>{
       alert(result.message)
@@ -50,12 +59,6 @@ signup()
   {
     alert("password doesn't match")
   }
-  
-  
-  
-  
-  
-  
-
+  }
 }
 }

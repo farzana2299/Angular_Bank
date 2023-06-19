@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  uname:any
+  constructor()
+  {
+
+  }
+  ngOnInit():void
+  {
+    if(localStorage.getItem('currentUser'))
+    {
+      this.uname=localStorage.getItem('currentUser')
+    }
+  }
+
 
 }

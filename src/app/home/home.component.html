@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
+
     <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-12 list-group">
-            <button id="d" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;"><i class="fa-solid fa-user me-2 fa-2x text-warning"></i><b>View Profile</b> </button>
+            <button id="d" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;">
+                <i class="fa-solid fa-user me-2 fa-2x text-warning"></i><b>View Profile</b> </button>
             <hr class="text-white">
-            <button id="d" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;"><i class="fa-solid fa-sack-dollar ms-2 text-warning fa-2x"></i><b>Balance Enquiry</b> </button>
+            <button id="d" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;">
+                <i class="fa-solid fa-sack-dollar ms-2 text-warning fa-2x"></i><b>Balance Enquiry</b> </button>
             <hr class="text-white">
             <button id="d" class="list-group-item list-group-item-action active text-center" style="background-color:  rgb(51, 181, 224); color: white; font-size: 20px;"><i class="fa-solid fa-money-bill-transfer ms-2 text-warning fa-2x"></i><b>Money Transfer</b> </button>
             <hr class="text-white">
@@ -23,6 +17,7 @@
             <hr class="text-white">
         </div>
         <div class="col-lg-8 col-sm-12" >
+            <h4>Welcome {{uname}}!</h4>
             <h1 class="text-center">ABOUT US</h1>
             <p style="font-size: 20px;">The online banking system will typically connect to or be part of the core banking system operated
                  by a bank to provide customers access to banking services in addition to or in place of historic 
@@ -32,6 +27,42 @@
             <img class="w-100" src="https://i.postimg.cc/BZmbN1Ft/what-is-an-online-bank-315204-final-98ce36e857d245d2867e28fa4c189111.png" alt="home pge foto" style="height:320px;">
         </div>
     </div>
-    
-</body>
-</html>
+ <!-- view profile Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="modal-body ">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h1 class="modal-title fs-5 text text-center" id="exampleModalLabel">View Profile</h1>
+          <img class="w-50" style="position: relative;left:120px;" src="https://i.postimg.cc/Hx2Wrknp/businessman-avatar-cartoon-character-profile-vector-25645195.jpg" alt="">
+        </div>
+
+        <div class="modal-body" style="background-color: rgb(51, 181, 224);">
+            <hr>  
+            <h3>User Name</h3>
+              <hr>
+              <h3>Account Number</h3>
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-secondary">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- balance equery offcanvas  -->
+<div style="background-color:rgb(51, 181, 224) ;color: white;" 
+class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header text-center">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <h3 class="offcanvas-title text-center" id="offcanvasExampleLabel"><b> BALANCE ENQUIRY</b></h3>
+    <div class="offcanvas-body">
+        <img  style="position: relative; right: 85px;  width: 400px;height: 220px;" src="https://i.postimg.cc/dVzcbtcW/premium-photo-1679255807252-3c568399dfc2.jpg" alt="">
+        <hr>
+        <h3>Account Number</h3>
+        <hr>
+      <h3>Current Balance</h3>
+    </div>
+  </div>

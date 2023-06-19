@@ -1,0 +1,5 @@
+Angular Directives  - used to manipulate dom
+---------------------
+1) Component Directive - changes happen due to the creation of new component
+2) structural directive - changes happen when we add additional tag,div etc
+3) attribute directive - under some condition we use some classes (ngClass)

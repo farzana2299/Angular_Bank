@@ -14,13 +14,21 @@
     <h1 class="p-3 mt-3">{{data}}</h1>
  <div class="row">
     <div class="col-lg-6 col-sm-12">
-        <form id="d" class="ms-5 mt-5 p-5 w-75" style="background-color:  rgb(51, 181, 224);">
+        <form [formGroup]="loginForm" id="d" class="ms-5 mt-5 p-5 w-75" style="background-color:  rgb(51, 181, 224);">
             <h1 class="text-center text-white"><b><i class="fa-solid fa-right-to-bracket text-warning"></i> SIGN IN</b></h1>
             <div class="p-2 mt-2">
-                <input [(ngModel)]="acno" class="form-control" type="text" name="ac1" id="u1" placeholder="Enter Account number">
+                <input formControlName="acno" class="form-control" type="text" name="ac1" id="u1" placeholder="Enter Account number">
+            </div>
+            <div *ngIf="(this.loginForm.get('acno')?.errors)&&(this.loginForm.get('acno')?.touched)">
+                <p class="text-danger">Must contains numbers only</p>
+    
             </div>
             <div>
-                <input [(ngModel)]="psw"  type="password" class="form-control" name="pass" id="p1" [placeholder]="pdata">
+                <input formControlName="psw"  type="password" class="form-control" name="pass" id="p1" [placeholder]="pdata">
+            </div>
+            <div *ngIf="(this.loginForm.get('acno')?.errors)&&(this.loginForm.get('acno')?.touched)">
+                <p class="text-danger">Must contains alphabets and numbers only</p>
+    
             </div>
             <div class="p-2 mt-2 text-center">
                 <button (click)="login()" class="btn btn-secondary">login</button>

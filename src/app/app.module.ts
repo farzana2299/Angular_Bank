@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { TransactionComponent } from './transaction/transaction.component';
+import { FilterPipe } from './bankPipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TransactionComponent } from './transaction/transaction.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    TransactionComponent
+    TransactionComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

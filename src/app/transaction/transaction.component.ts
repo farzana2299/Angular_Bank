@@ -9,6 +9,8 @@ import { DataService } from '../data.service';
 export class TransactionComponent {
   acno:any
   transaction:any
+  date:any;
+  searchString=""
 constructor(private ds:DataService)
 {
 
@@ -22,5 +24,10 @@ if(localStorage.getItem('currentAcno'))
     this.transaction=result.message
   })
 }
+  this.date=new Date()
+}
+filterPipe(data:any)
+{
+  this.searchString=data
 }
 }

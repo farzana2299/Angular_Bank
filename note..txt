@@ -4,6 +4,17 @@ Angular Directives  - used to manipulate dom
 2) structural directive - changes happen when we add additional tag,div etc
 3) attribute directive - under some condition we use some classes ([ngClass])
 
+
+header
+-------
+HttpHeader -class used to create header
+
 pipe
 -----
-uswd to convert data formats in angular
+used to convert data formats in angular
+command to craete pipe- ng g pipe pipename
+
+transform(arg1,arg2,arg3)
+arg 1 - input data to transform- transaction array
+arg2 - search data used to transform the input array - debit/credit/all 
+arg 3 - one data in input array used to match - type key in transaction array

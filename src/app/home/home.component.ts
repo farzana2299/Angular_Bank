@@ -15,6 +15,8 @@ export class HomeComponent {
   userData:any
   alertMessage:any=""
   alertColor:boolean=true 
+  acnoD:any
+  onCancel: any;
   constructor(private ds:DataService,private router:Router,private fb:FormBuilder,
     private datePipe:DatePipe)
   {
@@ -22,6 +24,13 @@ export class HomeComponent {
   }
   ngOnInit():void
   {
+    if(localStorage.getItem('currentAcno'))
+    {
+      this.acno=localStorage.getItem('currentAcno')
+      this.ds.getTransaction(this.acno).subscribe((result:any)=>{
+        this.transaction=result.message
+      })
+    }
     //when logout user try to get using backbutton 
     if(!localStorage.getItem('currentAcno'))
     {
@@ -58,6 +67,7 @@ logout()
 {
   localStorage.removeItem('currentAcno')
   localStorage.removeItem('currentuname')
+  localStorage.removeItem('token')
   this.router.navigateByUrl("")
 }
 // model form of transaction form 
@@ -102,5 +112,25 @@ moneyTransfer()
     this.alertMessage='Invalid Form'
     this.alertColor=false 
   }
+}
+deleteAC()
+{
+  if(localStorage.getItem('currentAcno'))
+  {
+    this.acnoD=localStorage.getItem('currentAcno')
+    //console.log(this.acnoD);
+    
+  }
+}
+cancelChild()
+{
+  this.acnoD=""
+}
+deleteAccount(event:any)
+{
+  this.ds.deleteAc(event).subscribe((result:any)=>{
+    this.logout()
+    alert(result.message)
+  })
 }
 }

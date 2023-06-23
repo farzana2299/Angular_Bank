@@ -35,6 +35,7 @@ export class LoginComponent {
 
       localStorage.setItem('currentUser',result.currentUser)
       localStorage.setItem('currentAcno',result.currentAcno)
+      localStorage.setItem('token',JSON.stringify(result.token))
       alert(result.message)
       this.router.navigateByUrl('home')
     },
@@ -42,6 +43,9 @@ export class LoginComponent {
       alert(result.error.message)
     }
     )
+    }
+    else{
+      alert('Invalid Form')
     }
   }
     

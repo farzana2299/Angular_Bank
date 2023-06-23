@@ -6,7 +6,7 @@
 <button class="" (click)="filterPipe('CREDIT')">Credit</button>
 </div>
 
-<table class="table table-primary table-striped">
+<table class="table table-primary table-striped container">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor=""let i of transactions | filter : 'DEBIT' : "type" ; let j="index">
+      <tr *ngFor="let i of transaction | filter :searchString:'type'; let j=index">
         <th scope="row">{{j+1}}</th>
         <td>{{i.type}}</td>
         <td>{{i.amount}}</td>
@@ -25,3 +25,8 @@
       
     </tbody>
   </table>
+  <div class="text-container mb-2">
+    <a href="home" type="button" class="btn btn-danger mt-3 ms-3 mb-3 w-25">Close</a>
+    <button class="btn btn-primary mt-3 ms-3 mb-3">Export As Pdf<i class="fa-solid fa-file-pdf"></i></button>
+
+  </div>

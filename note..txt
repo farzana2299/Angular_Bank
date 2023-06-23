@@ -1,3 +1,16 @@
+jwt(json web token)
+-------------------
+used for user authentication
+npm i jsonwebtoken
+
+Middlewares
+------------
+it is a function with 3 aruments(req,res,next)
+it is used to control server request.
+Two types of Middlewares
+1. Application specific Middlewares - control all server request
+2.Router specific middleware - control specific server request
+
 Angular Directives  - used to manipulate dom
 ---------------------
 1) Component Directive - changes happen due to the creation of new component
@@ -14,7 +27,30 @@ pipe
 used to convert data formats in angular
 command to craete pipe- ng g pipe pipename
 
+header
+------
+HttpHeader - class used to create header
+
 transform(arg1,arg2,arg3)
 arg 1 - input data to transform- transaction array
 arg2 - search data used to transform the input array - debit/credit/all 
 arg 3 - one data in input array used to match - type key in transaction array
+
+parent component to child component communication(data sharing)
+----------------------------------------------------------------
+parent-child -@Input() decorator
+child-parent -@Output() decorator
+
+child component to parent component communication(data sharing)
+----------------------------------------------------------------
+We need event creation for child to parent communication.
+class used to create event - EventEmitter (already in angular)
+emit()- is helps event to where did it should work
+
+event
+-----
+event binding-we didnt get the data
+doller binding-we get data using data eg:(change)-we get changed data here
+
+to install pdf - npm i jspdf
+               - npm i jspdf-autotable
